@@ -1,0 +1,13 @@
+chain_0,chain_0,chain_0,chain_0,chain_1,chain_1,chain_1,chain_1,chain_2,chain_2,chain_2,chain_2,chain_3,chain_3,chain_3,chain_3
+output_key,model_name,prompt_0,input_variable_0,output_key,model_name,prompt_0,input_variable_0,output_key,model_name,prompt_0,input_variable_0,output_key,model_name,prompt_0,input_variable_0
+English_Review,gpt-3.5-turbo,"Translate the following review to english:
+
+{Review}",['Review'],summary,gpt-3.5-turbo,"Can you summarize the following review in 1 sentence:
+
+{English_Review}",['English_Review'],language,gpt-3.5-turbo,"What language is the following review:
+
+{Review}",['Review'],followup_message,gpt-3.5-turbo,"Write a follow up response to the following summary in the specified language:
+
+Summary: {summary}
+
+Language: {language}","['language', 'summary']"
