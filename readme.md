@@ -1,17 +1,33 @@
-传入agent，（langchain），使用数据集对其进行测试（不同的agent可能使用不同数据集），得到输出。进行monitor，测试各种性能指标。
-只能把不同的agent分开作为不同的情况考虑，但是可以提供统一的入口
-langkit中，提供的统一入口就是，why.log()，里面需要手动传入prompt和response。
-考虑更进一步，可以传进一个LLM chain，然后我们自动来处理这个chain的所有agent，然后得到结果。 
+## How to use
 
-可以先从langchain入手，将一个chain传入进行考虑
+```shell
+export OPENAI_API_KEY=your-api-key
+python monitor_agent.py
+```
 
+## Current features
 
+- Monitor the input and output of a langchain agent. Users don't need to pass input and response to a monitor, instead,
+  they just need to pass a langchain agent to our monitor.
+- Check the input by examing existing attacks and toxicity
+- Attack Dataset:
+    - [x] jailbreak
+    - [x] toxicity
+    - [ ] stereotype
+    - [ ] robustness
+    - [ ] fairness
+    - [ ] Ethics
+    - [x] Privacy
+      Details can be found in `dataset/readme.md`
 
+## Future features
 
+- Monitor all the variables in the chain
+- Support more types of agent (now only support `langchain.chains.Chain`)
+- Support more types of dataset
+- Considering performance, the Monitor should have a `fast` feature, which means not monitoring before and after
+  the chain execution but instead monitoring the chain asynchronously and notifying the user if a problem arises.
+  It avoids impacting the chain's performance. However, the drawback is that it cannot prevent harmful
+  content from happening, but only monitor it.
+- Even when `fast=False`, parallel monitoring should still be adopted.
 
-
-## Others
-
-打印dataframe不好看，使用tabulate，但存在问题，无法合并一级索引
-
-两种情况，用户在constructer里传入handler，或者在invoke里传入handler
