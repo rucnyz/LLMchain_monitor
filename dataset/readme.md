@@ -5,12 +5,13 @@ categories:
 
 ## format
 
-After `read.py` is executed, the dataset is loaded into a pandas dataframe and then saved into a csv file. 
+After `read.py` in each subdir is executed, the dataset in each directory is loaded into a pandas dataframe and then
+saved into csv files.
 These csv files are stored in the `data` directory.
 The dataframe has the following columns:
 
-- prompt (full prompt): A prompt can be "an instruction prompt + (a question, a statement, or a command)"
-- response (optional): A response can be "a statement"
+- prompt: A prompt can be "an instruction prompt + (a question, a statement, or a command)"
+- response (optional): A response can be "a statement" by the LLM.
 
 ## chatbot
 
@@ -19,6 +20,7 @@ The dataframe has the following columns:
 ```shell
 python read.py
 ```
+
 We only select 20 prompts here, corresponding to the 20 csv files.
 
 Reference: "Do Anything Now": Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models
