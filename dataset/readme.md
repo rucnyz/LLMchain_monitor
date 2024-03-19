@@ -27,10 +27,17 @@ Reference: "Do Anything Now": Characterizing and Evaluating In-The-Wild Jailbrea
 
 ### Toxicity
 
+```shell
+python read.py --prompt_id 0 --data filtered
+```
+
+- data: all, filtered
+- prompt_id: 0, 1, ... 33
+
 There are two json files in the dataset:
 
-- `toxicity.jsonl`: normal toxicity dataset
-- `challenging.jsonl`: challenging toxicity dataset
+- `toxic.jsonl.gpt4.n=25.out1.split.annotated.jsonl.all.jsonl`: all toxicity dataset with gpt4 score
+- `toxic.jsonl.gpt4.n=25.out1.split.annotated.jsonl.filtered.jsonl`: most toxicity 1200 data with gpt4 score
 
 Reference: DecodingTrust
 
